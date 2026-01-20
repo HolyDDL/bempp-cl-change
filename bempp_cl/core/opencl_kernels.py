@@ -276,9 +276,10 @@ def find_cpu_driver(name=None):
             dev_type=_cl.device_type.ALL,
             properties=[(_cl.context_properties.PLATFORM, platform)],
         )
-        for device in ctx.devices:
-            if device.type == _cl.device_type.CPU:
+        for d in ctx.devices:
+            if d.type == _cl.device_type.CPU:
                 found = True
+                device = d
     if not found:
         raise ValueError(f"Could not find CPU driver containing name {name}.")
     return ctx, device
@@ -299,9 +300,10 @@ def find_gpu_driver(name=None):
             dev_type=_cl.device_type.ALL,
             properties=[(_cl.context_properties.PLATFORM, platform)],
         )
-        for device in ctx.devices:
-            if device.type == _cl.device_type.GPU:
+        for d in ctx.devices:
+            if d.type == _cl.device_type.GPU:
                 found = True
+                device = d
     if not found:
         raise ValueError(f"Could not find GPU driver containing name {name}.")
     return ctx, device
