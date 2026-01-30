@@ -90,9 +90,9 @@ def callable(*args, complex=False, jit=True, parameterized=False, vectorized=Fal
         return wrap(args[0])
 
 
-def real_callable(*args, jit=True):
+def real_callable(*args, jit=True, vectorized=False):
     """Wrap function as a real Numba callable."""
-    return callable(*args, complex=False, jit=jit)
+    return callable(*args, complex=False, jit=jit, vectorized=vectorized)
 
 
 def complex_callable(*args, jit=True):
