@@ -154,7 +154,7 @@ def export(
         point_data=point_data,
         cell_data=cell_data,
         file_format=file_format,
-        binary=write_binary,
+        # binary=write_binary,
     )
 
 
